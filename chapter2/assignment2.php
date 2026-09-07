@@ -1,5 +1,5 @@
 <?php
-// Store the Googleplex information in variables
+// Stores the Googleplex information in variables
 $heading = "Googleplex";
 $street = "1600 Amphitheatre Parkway";
 $city = "Mountain View";
@@ -21,11 +21,10 @@ $country = "United States";
 <?php
 echo "<h1>$heading</h1>\n";
 
-echo "<p>The Googleplex is the corporate headquarters complex of Google and its parent company Alphabet Inc. It is located at:<br>\n";
+echo "<p>The $heading is the corporate headquarters complex of Google and its parent company Alphabet Inc. It is located at:<br>\n";
 echo "$street<br>\n";
 echo "$city, $state, $country</p>\n";
 ?>
 
 </body>
-</html>
 </html>
