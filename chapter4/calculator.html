@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Melissa Guevara Hernandez -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MPG and Trip Cost Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 100%;
+            line-height: 1.5;
+            margin: 2rem;
+        }
+
+        main {
+            max-width: 650px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 1.5rem;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            width: 160px;
+            text-align: right;
+        }
+
+        input[type="number"] {
+            width: 120px;
+            padding: 0.4rem;
+            font: inherit;
+        }
+
+        .button-row {
+            margin-left: 176px;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            font: inherit;
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                display: block;
+            }
+
+            label {
+                display: block;
+                width: auto;
+                text-align: left;
+                margin-bottom: 0.25rem;
+            }
+
+            .button-row {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Calculate Your MPG and Trip Cost</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Enter the information below to see if you are getting good mileage!</h2>
+
+            <form action="calculator.php" method="post">
+                <fieldset>
+                    <legend>Trip Information</legend>
+
+                    <div class="form-row">
+                        <label for="miles_driven">Miles Driven:</label>
+                        <input type="number" id="miles_driven" name="miles_driven" min="1" step="1" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="gallons_used">Gallons of Gas Used:</label>
+                        <input type="number" id="gallons_used" name="gallons_used" min="0.1" step="any" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="price_gallon">Price per Gallon:</label>
+                        <input type="number" id="price_gallon" name="price_gallon" min="2.59" step="0.01" required>
+                    </div>
+
+                    <div class="button-row">
+                        <button type="submit">Calculate the MPG and Cost of the Trip</button>
+                        <button type="reset">Clear Form</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
