@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Student Name: Melissa Guevara Hernandez -->
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assignment 5 Strings</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 100%;
+            background-image: url(https://cdn1.vectorstock.com/i/1000x1000/91/00/background-with-dog-paw-print-and-bone-vector-2669100.jpg);
+            background-size: cover;
+        }
+
+        #outer {
+            width: 960px;
+            margin: 50px auto;
+            padding: 10px;
+            border: 1px solid #a8a8a8;
+            box-shadow: 0 0 20px #a8a8a8;
+            background-color: aliceblue;
+        }
+
+        h1,
+        h2 {
+            font-size: 1.5em;
+            color: navy;
+            text-align: center;
+        }
+
+        .info {
+            text-align: left;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Humane Society Donations</h1>
+        <h2>Help the Animals</h2>
+    </header>
+
+    <section id="outer">
+        <h2 class="info">Donation Information</h2>
+
+        <form action="donation.php" method="post">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" placeholder="First Name" maxlength="20" required>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" placeholder="Last Name" maxlength="20" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="Email Address" maxlength="50" required>
+
+            <label for="donation">Donation</label>
+            <input type="number" name="donation" id="donation" placeholder="Donation Amount" min="1" step="0.01" required>
+
+            <input type="submit" value="Send in My Donation">
+
+            <input type="reset" value="Clear Form">
+        </form>
+
+    </section>
+</body>
+
+</html>
