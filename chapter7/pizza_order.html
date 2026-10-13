@@ -1,0 +1,427 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pizza Order Form</title>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0.5rem;
+            font-family: Arial, sans-serif;
+            font-size: 100%;
+            line-height: 1.5;
+            color: #222;
+            background-color: #111;
+        }
+
+        /*
+            Two-column card:
+            Left side: header and form
+            Right side: pizza image
+        */
+        .order-card {
+            display: grid;
+            grid-template-columns: minmax(0, 64%) minmax(20rem, 36%);
+            width: min(100%, 84rem);
+            min-height: calc(100vh - 1rem);
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid #aaa;
+            border-radius: 0.75rem;
+            background-color: #f5f5f5;
+        }
+
+        /*
+            Left form panel
+        */
+        .form-panel {
+            padding: 0.75rem 1rem 1rem;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 0.75rem;
+            font-size: 2rem;
+            color: red;
+        }
+
+        h2 {
+            margin-bottom: 0.75rem;
+            font-size: 1.75rem;
+        }
+
+        .price {
+            margin-bottom: 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /*
+            Customer information
+        */
+        .customer-fields {
+            display: grid;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .form-field {
+            display: grid;
+            grid-template-columns: 4rem minmax(12rem, 17rem);
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .form-field label {
+            font-size: 1.1rem;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 0.35rem;
+            border: 1px solid #999;
+            font: inherit;
+        }
+
+        .help-text {
+            grid-column: 2;
+            font-size: 0.85rem;
+        }
+
+        /*
+            Topping group
+        */
+        fieldset {
+            margin: 0 0 1.5rem;
+            padding: 0;
+            border: 0;
+        }
+
+        legend {
+            margin-bottom: 1rem;
+            padding: 0;
+            font-size: 1.15rem;
+        }
+
+        .toppings {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(8rem, 1fr));
+            gap: 2rem 1.25rem;
+        }
+
+        .topping-option {
+            display: flex;
+            gap: 0.55rem;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .topping-option input {
+            width: 1rem;
+            height: 1rem;
+            margin: 0;
+            flex: 0 0 auto;
+        }
+
+        /*
+            Form buttons
+        */
+        .actions {
+            display: grid;
+            justify-items: start;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 0.35rem 0.6rem;
+            border: 1px solid #999;
+            background-color: #fff;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #e8e8e8;
+        }
+
+        /*
+            Pizza image panel
+        */
+        .pizza-panel {
+            min-width: 0;
+            min-height: 100%;
+            margin: 0;
+            background-color: #000;
+            background-image: url("https://image.freepik.com/free-photo/crop-pizza-black_23-2147749510.jpg");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: cover;
+        }
+
+        /*
+            Medium screens
+        */
+        @media (max-width: 70rem) {
+            .order-card {
+                grid-template-columns: minmax(0, 62%) minmax(18rem, 38%);
+            }
+
+            .toppings {
+                grid-template-columns: repeat(3, minmax(8rem, 1fr));
+            }
+        }
+
+        /*
+            Small screens:
+            place the pizza below the form
+        */
+        @media (max-width: 50rem) {
+            body {
+                padding: 0;
+            }
+
+            .order-card {
+                grid-template-columns: 1fr;
+                width: 100%;
+                min-height: 100vh;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .form-panel {
+                padding: 1rem;
+            }
+
+            .pizza-panel {
+                min-height: 24rem;
+                background-position: right center;
+            }
+
+            .toppings {
+                grid-template-columns: repeat(2, minmax(8rem, 1fr));
+            }
+        }
+
+        /*
+            Very small screens
+        */
+        @media (max-width: 32rem) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .price {
+                font-size: 1.1rem;
+            }
+
+            .form-field {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .help-text {
+                grid-column: 1;
+            }
+
+            .toppings {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pizza-panel {
+                min-height: 18rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="order-card">
+        <section class="form-panel">
+            <header>
+                <h1>Pizza Express</h1>
+                <h2>Ready for Pickup in 15 Minutes!</h2>
+                <p class="price">One 12-inch cheese pizza: $7.95</p>
+            </header>
+
+            <form action="order_me.php" method="post">
+                <div class="customer-fields">
+                    <div class="form-field">
+                        <label for="name">Name:</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Phone:</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            placeholder="012-345-6789"
+                            aria-describedby="phone-format"
+                            required>
+
+                        <small id="phone-format" class="help-text">
+                            Use the format 012-345-6789.
+                        </small>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>
+                        Choose your toppings — $1.00 per additional topping
+                    </legend>
+
+                    <div class="toppings">
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="extra_cheese">
+                            Extra Cheese
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="pepperoni">
+                            Pepperoni
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="sausage">
+                            Sausage
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="meatballs">
+                            Meatball
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="tomato">
+                            Tomato
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="onion">
+                            Onion
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="olives">
+                            Olives
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="peppers">
+                            Peppers
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="mushroom">
+                            Mushroom
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="spinach">
+                            Spinach
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="garlic">
+                            Garlic
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="cilantro">
+                            Cilantro
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="actions">
+                    <button type="submit">Send Pizza Order</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <div
+            class="pizza-panel"
+            role="img"
+            aria-label="Fresh pizza with assorted toppings">
+        </div>
+    </main>
+</body>
+
+</html>
