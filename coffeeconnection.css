@@ -1,0 +1,192 @@
+/* ------------------ global styles ---------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    background: rgb(234, 214, 159);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------------------ classes ---------------- */
+
+.center {
+    text-align: center;
+}
+
+/* ------------------ header ---------------- */
+
+header {
+    background-color: rgb(33, 16, 11);
+}
+
+header h1 {
+    margin-top: 0;
+    font-family: "Pacifico", cursive;
+    font-size: 3em;
+    color: rgb(234, 214, 159);
+    word-spacing: 5px;
+    letter-spacing: 3px;
+    text-shadow: 0 6px 3px #846843;
+}
+
+/* ------------------ navigation ---------------- */
+
+nav {
+    width: min(960px, calc(100% - 2rem));
+    margin: 10px auto;
+    background: rgb(33, 16, 11);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+nav li {
+    flex: 1 1 150px;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    padding: 15px;
+    border-right: 1px solid rgb(243, 255, 188);
+    color: rgb(243, 255, 188);
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav li:last-of-type a {
+    border-right: none;
+}
+
+/* ------------------ figure ---------------- */
+
+figure {
+    width: min(960px, calc(100% - 2rem));
+    margin-right: auto;
+    margin-left: auto;
+    background: rgb(243, 255, 188);
+    text-align: center;
+}
+
+/* ------------------ content ---------------- */
+
+#content {
+    width: min(960px, calc(100% - 2rem));
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    background: rgb(243, 255, 188);
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    width: 300px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    margin-left: 5px;
+    padding: 5px;
+    background: rgb(234, 214, 159);
+}
+
+h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* ------------------ form ---------------- */
+
+form {
+    width: min(320px, 100%);
+    margin: 20px auto;
+}
+
+form div {
+    padding: 5px;
+}
+
+.flexcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.flexcontainer2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flexcontainer label {
+    flex: 1 1 100px;
+}
+
+.flexcontainer input {
+    flex: 2 1 0;
+    min-width: 0;
+}
+
+.flexcontainer2 input {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+button {
+    font: inherit;
+}
+
+.clear-link {
+    color: rgb(33, 16, 11);
+}
+
+.red {
+    margin: 0 0 0 25px;
+    color: #b00020;
+}
+
+/* ------------------ footer ---------------- */
+
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background: rgb(33, 16, 11);
+    color: rgb(243, 255, 188);
+    font-size: 0.8em;
+}
+
+footer a {
+    color: inherit;
+}
