@@ -1,0 +1,114 @@
+:root {
+    --color-background: #fffbeb;
+    --color-surface: #ffffff;
+    --color-text: #1f1f1f;
+    --color-border: #777777;
+    --color-button: #000000;
+    --color-button-hover: #333333;
+    --color-button-text: #ffffff;
+    --color-focus: #005fcc;
+    --color-error: #b00020;
+    --color-error-background: #fff0f1;
+
+    --space-small: 0.75rem;
+    --space-medium: 1rem;
+    --space-large: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.wrapper {
+    width: min(90%, 44rem);
+    margin: 2rem auto;
+    padding: var(--space-large);
+    background-color: var(--color-surface);
+    border: 1px solid #d6d3c5;
+    border-radius: 0.5rem;
+}
+
+h1,
+h2 {
+    line-height: 1.2;
+}
+
+.survey-image {
+    display: block;
+    width: 100%;
+    max-width: 41.25rem;
+    height: auto;
+    margin-bottom: var(--space-large);
+}
+
+fieldset {
+    margin: 0 0 var(--space-large);
+    padding: var(--space-medium);
+    border: 1px solid var(--color-border);
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    gap: var(--space-small);
+    margin: var(--space-small) 0;
+}
+
+.choice input {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+button,
+.button-link {
+    display: inline-block;
+    padding: 0.65rem var(--space-medium);
+    border: 2px solid var(--color-button);
+    border-radius: 0.4rem;
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.button-link:hover {
+    background-color: var(--color-button-hover);
+}
+
+button:focus-visible,
+.button-link:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+.error {
+    padding: var(--space-small);
+    border-left: 0.3rem solid var(--color-error);
+    background-color: var(--color-error-background);
+    font-weight: bold;
+}
+
+.results {
+    padding-left: 1.25rem;
+}
+
+.actions {
+    margin-top: var(--space-large);
+}
