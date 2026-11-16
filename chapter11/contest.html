@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Photo Contest</h1>
+        </header>
+
+        <section>
+            <h2>Upload your favorite photo for entry into our contest!</h2>
+
+            <aside class="grid-container">
+                <div class="grid-item">1st Place: $1,000.00</div>
+                <div class="grid-item">2nd Place: $500.00</div>
+                <div class="grid-item">3rd Place: $250.00</div>
+            </aside>
+
+            <form action="contest_result.php" method="post" enctype="multipart/form-data">
+
+                <div class="flexcontainer">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" maxlength="30" required>
+                </div>
+
+                <div class="flexcontainer">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" maxlength="30" required>
+                </div>
+
+                <!-- PHP may use this optional size hint; PHP must still validate upload size. -->
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
+
+                <!--
+    EXTRA CREDIT:
+    To allow multiple photographs, change name="photo" to
+    name="photos[]" and add the multiple attribute.
+
+    You must also update the PHP processing code to loop
+    through the uploaded files using their array indexes.
+    The current PHP starter processes only one photograph.
+-->
+                <div class="flexcontainer">
+                    <label for="photo">Photo:</label>
+                    <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required>
+                </div>
+
+                <p>Please upload a JPEG or PNG photograph (maximum 1 MB).</p>
+                <input type="submit" value="Upload Photo" class="clear">
+
+                <input type="reset" value="Clear Form">
+            </form>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
